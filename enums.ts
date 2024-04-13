@@ -1,3 +1,11 @@
+/**
+ * Enums for Hypixel API, adapted from https://github.com/HypixelDev/HypixelData
+ * @module
+ */
+
+/**
+ * The packet errors returned instead of clientbound packets when something goes wrong.
+ */
 export enum PacketErrorId {
     DISABLED = 1,
     INTERNAL_SERVER_ERROR,
@@ -42,6 +50,9 @@ export function packetErrorToId(error: PacketError): PacketErrorId {
     }
 }
 
+/**
+ * The Hypixel server environment currently running.
+ */
 export enum EnvironmentId {
     PRODUCTION,
     BETA,
@@ -76,10 +87,20 @@ export function environmentToId(environment: Environment): number {
     }
 }
 
+/**
+ * The Hypixel server type, either a game type or a lobby type.
+ * Eventually these will be more strongly typed within this package.
+ * https://github.com/HypixelDev/HypixelData/blob/master/src/main/java/net/hypixel/data/type/GameType.java
+ * https://github.com/HypixelDev/HypixelData/blob/master/src/main/java/net/hypixel/data/type/LobbyType.java
+ */
 export interface ServerType {
     name: string
 }
 
+
+/**
+ * The permanent rank of a player.
+ */
 export enum PackageRankId {
     NONE = 1,
     VIP,
@@ -124,6 +145,9 @@ export function packageRankToId(rank: PackageRank): PackageRankId {
     }
 }
 
+/**
+ * The monthly rank of a player.
+ */
 export enum MonthlyPackageRankId {
     NONE = 1,
     SUPERSTAR
@@ -153,6 +177,9 @@ export function monthlyPackageRankToId(rank: MonthlyPackageRank): MonthlyPackage
     }
 }
 
+/**
+ * The special rank of a player.
+ */
 export enum PlayerRankId {
     NORMAL = 1,
     YOUTUBER,

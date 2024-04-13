@@ -1,9 +1,13 @@
 import { VersionedPacket } from '../../../mod'
-import { Client, PacketReader, PacketWriter } from '@lilithmod/unborn-mcproto'
+import { PacketReader, PacketWriter } from '@lilithmod/unborn-mcproto'
 import { Environment, environmentToId, getEnvironmentFromId } from '../../../enums'
 
 const CURRENT_VERSION = 1
 
+/**
+ * Sent by the server in response to a clientbound location packet to inform the client of its current location.
+ * Similar to /locraw, and based on the same data.
+ */
 export interface ClientboundLocationPacketV1 extends VersionedPacket {
     environment: Environment
     proxyName: string
@@ -14,6 +18,11 @@ export interface ClientboundLocationPacketV1 extends VersionedPacket {
     map?: string
 }
 
+/**
+ * Reads a clientbound location packet from a buffer.
+ * @param buffer A buffer containing the packet data. The version number should be the first entry in the buffer.
+ * @returns 
+ */
 export function read(buffer: Buffer): ClientboundLocationPacketV1 {
     const reader = new PacketReader(buffer)
 
@@ -36,6 +45,11 @@ export function read(buffer: Buffer): ClientboundLocationPacketV1 {
     return packet
 }
 
+/**
+ * Writes a clientbound location packet to a new buffer.
+ * @param packet The packet to write.
+ * @returns A buffer containing the packet data. A success byte should be written to the buffer before this data.
+ */
 export function write(packet: ClientboundLocationPacketV1): Buffer {
     const writer = new PacketWriter(CURRENT_VERSION)
 

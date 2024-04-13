@@ -11,6 +11,11 @@ export interface ClientboundPlayerInfoPacketV1 extends VersionedPacket {
     prefix?: string
 }
 
+/**
+ * Reads a clientbound player info packet from a buffer.
+ * @param buffer A buffer containing the packet data. The version number should be the first entry in the buffer.
+ * @returns 
+ */
 export function read(buffer: Buffer): ClientboundPlayerInfoPacketV1 {
     const reader = new PacketReader(buffer)
     
@@ -27,6 +32,11 @@ export function read(buffer: Buffer): ClientboundPlayerInfoPacketV1 {
     return packet
 }
 
+/**
+ * Writes a clientbound player info packet to a new buffer.
+ * @param packet The packet to write.
+ * @returns A buffer containing the packet data. A success byte should be written to the buffer before this data.
+ */
 export function write(packet: ClientboundPlayerInfoPacketV1): Buffer {
     const writer = new PacketWriter(CURRENT_VERSION)
 
