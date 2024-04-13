@@ -14,8 +14,16 @@ export enum PacketErrorId {
     NO_LONGER_SUPPORTED
 }
 
+/**
+ * String representation of all possible packet errors.
+ */
 export type PacketError = 'DISABLED' | 'INTERNAL_SERVER_ERROR' | 'RATE_LIMITED' | 'INVALID_PACKET_VERSION' | 'NO_LONGER_SUPPORTED'
 
+/**
+ * Convert a packet error id to its string representation.
+ * @param id The numeric id of the packet error.
+ * @returns The packet error message.
+ */
 export function getPacketErrorFromId(id: PacketErrorId): PacketError {
     switch (id) {
         case PacketErrorId.DISABLED:
@@ -33,6 +41,11 @@ export function getPacketErrorFromId(id: PacketErrorId): PacketError {
     }
 }
 
+/**
+ * Convert a packet error message to its numeric id.
+ * @param error The packet error message.
+ * @returns The numeric id of the packet error.
+ */
 export function packetErrorToId(error: PacketError): PacketErrorId {
     switch (error) {
         case 'DISABLED':
@@ -59,8 +72,16 @@ export enum EnvironmentId {
     TEST
 }
 
+/**
+ * String representation of all possible environments.
+ */
 export type Environment = 'PRODUCTION' | 'BETA' | 'TEST'
 
+/**
+ * Convert an environment id to its string representation.
+ * @param id The numeric id of the environment.
+ * @returns The environment name.
+ */
 export function getEnvironmentFromId(id: EnvironmentId): Environment {
     switch (id) {
         case 0:
@@ -74,6 +95,11 @@ export function getEnvironmentFromId(id: EnvironmentId): Environment {
     }
 }
 
+/**
+ * Convert an environment name to its numeric id.
+ * @param environment The environment name.
+ * @returns The numeric id of the environment.
+ */
 export function environmentToId(environment: Environment): number {
     switch (environment) {
         case 'PRODUCTION':
@@ -109,8 +135,16 @@ export enum PackageRankId {
     MVP_PLUS
 }
 
+/**
+ * String representation of all possible package ranks.
+ */
 export type PackageRank = 'NONE' | 'VIP' | 'VIP_PLUS' | 'MVP' | 'MVP_PLUS'
 
+/**
+ * Convert a package rank id to its string representation.
+ * @param id The numeric id of the package rank.
+ * @returns The package rank name.
+ */
 export function getPackageRankFromId(id: PackageRankId): PackageRank {
     switch (id) {
         case PackageRankId.NONE:
@@ -128,6 +162,11 @@ export function getPackageRankFromId(id: PackageRankId): PackageRank {
     }
 }
 
+/**
+ * Convert a package rank name to its numeric id.
+ * @param rank The package rank name.
+ * @returns The numeric id of the package rank.
+ */
 export function packageRankToId(rank: PackageRank): PackageRankId {
     switch (rank) {
         case 'NONE':
@@ -153,8 +192,16 @@ export enum MonthlyPackageRankId {
     SUPERSTAR
 }
 
+/**
+ * String representation of all possible monthly package ranks.
+ */
 export type MonthlyPackageRank = 'NONE' | 'SUPERSTAR'
 
+/**
+ * Convert a monthly package rank id to its string representation.
+ * @param id The numeric id of the monthly package rank.
+ * @returns The monthly package rank name.
+ */
 export function getMonthlyPackageRankFromId(id: MonthlyPackageRankId): MonthlyPackageRank {
     switch (id) {
         case MonthlyPackageRankId.NONE:
@@ -166,6 +213,11 @@ export function getMonthlyPackageRankFromId(id: MonthlyPackageRankId): MonthlyPa
     }
 }
 
+/**
+ * Convert a monthly package rank name to its numeric id.
+ * @param rank The monthly package rank name.
+ * @returns The numeric id of the monthly package rank.
+ */
 export function monthlyPackageRankToId(rank: MonthlyPackageRank): MonthlyPackageRankId {
     switch (rank) {
         case 'NONE':
@@ -178,7 +230,7 @@ export function monthlyPackageRankToId(rank: MonthlyPackageRank): MonthlyPackage
 }
 
 /**
- * The special rank of a player.
+ * The special rank of a player. Called PlayerRank by Hypixel.
  */
 export enum PlayerRankId {
     NORMAL = 1,
@@ -187,8 +239,16 @@ export enum PlayerRankId {
     ADMIN
 }
 
+/**
+ * String representation of all possible special ranks.
+ */
 export type PlayerRank = 'NORMAL' | 'YOUTUBER' | 'GAME_MASTER' | 'ADMIN'
 
+/**
+ * Convert a special rank id to its string representation.
+ * @param id The numeric id of the special rank.
+ * @returns The special rank name.
+ */
 export function getPlayerRankFromId(id: PlayerRankId): PlayerRank {
     switch (id) {
         case PlayerRankId.NORMAL:
@@ -204,6 +264,11 @@ export function getPlayerRankFromId(id: PlayerRankId): PlayerRank {
     }
 }
 
+/**
+ * Convert a special rank name to its numeric id.
+ * @param rank The special rank name.
+ * @returns The numeric id of the special rank.
+ */
 export function playerRankToId(rank: PlayerRank): PlayerRankId {
     switch (rank) {
         case 'NORMAL':
