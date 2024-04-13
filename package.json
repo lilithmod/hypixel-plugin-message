@@ -1,0 +1,18 @@
+{
+  "name": "hypixel-plugin-message",
+  "version": "0.3.0",
+  "description": "",
+  "main": "mod.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lilithmod/unborn-mcproto": "^0.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7"
+  }
+}

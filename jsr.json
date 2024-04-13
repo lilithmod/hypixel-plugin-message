@@ -1,0 +1,5 @@
+{
+    "name": "@lilith/hypixel-plugin-message",
+    "version": "0.3.0",
+    "exports": "./mod.ts"
+  }
