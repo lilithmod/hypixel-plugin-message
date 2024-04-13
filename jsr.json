@@ -3,6 +3,6 @@
     "version": "0.3.1",
     "exports": "./mod.ts",
     "publish": {
-        "exclude": "./test.ts"
+        "exclude": ["./test.ts"]
     }
 }
