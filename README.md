@@ -13,16 +13,16 @@ Currently up-to-date with ModAPI release 0.2.1
 ## Installation
 
 ```bash
-npx jsr add @lilith/hypixel-plugin-message-api
-yarn dlx jsr add @lilith/hypixel-plugin-message-api
-pnpm dlx jsr add @lilith/hypixel-plugin-message-api
-bunx jsr add @lilith/hypixel-plugin-message-api
+npx jsr add @lilith/hypixel-plugin-message
+yarn dlx jsr add @lilith/hypixel-plugin-message
+pnpm dlx jsr add @lilith/hypixel-plugin-message
+bunx jsr add @lilith/hypixel-plugin-message
 ```
 
 ## Usage
 
 ```ts
-import { readClientboundPacket, writeServerboundPacket } from '@lilith/hypixel-plugin-message-api'
+import { readClientboundPacket, writeServerboundPacket } from '@lilith/hypixel-plugin-message'
 
 const request: Buffer = writeServerboundPacket('ping', { version: 1})
 
