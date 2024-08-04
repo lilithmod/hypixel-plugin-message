@@ -1,10 +1,11 @@
-import * as serverbound_location_v1 from './packets/serverbound/v1/location'
-import * as serverbound_party_info_v1 from './packets/serverbound/v1/party_info'
+import * as serverbound_register_v1 from './packets/serverbound/v1/register'
+import * as serverbound_party_info_v2 from './packets/serverbound/v2/party_info'
 import * as serverbound_ping_v1 from './packets/serverbound/v1/ping'
 import * as serverbound_player_info_v1 from './packets/serverbound/v1/player_info'
 
-import * as clientbound_location_v1 from './packets/clientbound/v1/location'
-import * as clientbound_party_info_v1 from './packets/clientbound/v1/party_info'
+import * as clientbound_location_v1 from './packets/clientbound/v1/event/location'
+import * as clientbound_hello_v1 from './packets/clientbound/v1/hello'
+import * as clientbound_party_info_v2 from './packets/clientbound/v2/party_info'
 import * as clientbound_ping_v1 from './packets/clientbound/v1/ping'
 import * as clientbound_player_info_v1 from './packets/clientbound/v1/player_info'
 import { PacketReader, PacketWriter } from '@lilithmod/unborn-mcproto'
@@ -41,10 +42,12 @@ export * from './enums'
  */
 export const serverboundPackets: Record<number, Record<string, PacketUtils<VersionedPacket>>> = {
     1: {
-        location: serverbound_location_v1,
-        party_info: serverbound_party_info_v1,
+        register: serverbound_register_v1,
         ping: serverbound_ping_v1,
         player_info: serverbound_player_info_v1
+    },
+    2: {
+        party_info: serverbound_party_info_v2
     }
 }
 
@@ -55,9 +58,11 @@ export const serverboundPackets: Record<number, Record<string, PacketUtils<Versi
 export const clientboundPackets: Record<number, Record<string, PacketUtils<VersionedPacket>>> = {
     1: {
         location: clientbound_location_v1,
-        party_info: clientbound_party_info_v1,
         ping: clientbound_ping_v1,
         player_info: clientbound_player_info_v1
+    },
+    2: {
+        party_info: clientbound_party_info_v2,
     }
 }
 

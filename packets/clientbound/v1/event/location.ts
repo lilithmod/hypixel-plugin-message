@@ -1,6 +1,6 @@
-import { VersionedPacket } from '../../../mod'
+import { VersionedPacket } from '../../../../mod'
 import { PacketReader, PacketWriter } from '@lilithmod/unborn-mcproto'
-import { Environment, environmentToId, getEnvironmentFromId } from '../../../enums'
+import { Environment, environmentToId, getEnvironmentFromId } from '../../../../enums'
 
 const CURRENT_VERSION = 1
 
@@ -9,8 +9,6 @@ const CURRENT_VERSION = 1
  * Similar to /locraw, and based on the same data.
  */
 export interface ClientboundLocationPacketV1 extends VersionedPacket {
-    environment: Environment
-    proxyName: string
     serverName: string
     serverType?: string
     lobbyName?: string
@@ -28,8 +26,6 @@ export function read(buffer: Buffer): ClientboundLocationPacketV1 {
 
     const packet: ClientboundLocationPacketV1 = {
         version: reader.id,
-        environment: getEnvironmentFromId(reader.readVarInt()),
-        proxyName: reader.readString(),
         serverName: reader.readString(),
         serverType: reader.readOptional(reader.readString.bind(reader)),
         lobbyName: reader.readOptional(reader.readString.bind(reader)),
@@ -54,8 +50,6 @@ export function write(packet: ClientboundLocationPacketV1): Buffer {
     const writer = new PacketWriter(CURRENT_VERSION)
 
     writer
-        .writeVarInt(environmentToId(packet.environment))
-        .writeString(packet.proxyName)
         .writeString(packet.serverName)
         .writeOptional(packet.serverType, writer.writeString.bind(writer))
         .writeOptional(packet.lobbyName, writer.writeString.bind(writer))
