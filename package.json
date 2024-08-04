@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lilithmod/unborn-mcproto": "^0.14.0"
+    "@lilithmod/unborn-mcproto": "^0.14.0",
+    "hypixel-plugin-message": "file:"
   },
   "devDependencies": {
     "@types/node": "^20.12.7"

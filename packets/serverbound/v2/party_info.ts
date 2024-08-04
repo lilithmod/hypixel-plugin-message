@@ -1,7 +1,7 @@
 import { VersionedPacket } from '../../../mod'
 import { PacketReader, PacketWriter } from '@lilithmod/unborn-mcproto'
 
-const CURRENT_VERSION = 1
+const CURRENT_VERSION = 2
 
 /**
  * Represents a serverbound party info packet.
